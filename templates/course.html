@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Course Overview{% endblock %}
+
+{% block content %}
+<section>
+    <h2>AI Proficiency Course</h2>
+    <p>Explore the four modules of the AI Proficiency Course below. Each module is designed to be completed independently and includes a detailed description, estimated completion time, and a downloadable PowerPoint presentation for your reference.</p>
+
+    <div class="module-grid">
+        <!-- Module 1 -->
+        <div class="module-card">
+            <h3>Module 1: An Introduction to Artificial Intelligence</h3>
+            <p class="time">~45 minutes</p>
+            <p>This module establishes the conceptual foundation for the entire course, defining large language models and tracing their technological evolution.</p>
+            <a href="{{ url_for('module1') }}" class="btn">Start Module 1</a>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="module-card">
+            <h3>Module 2: Cognitive Concerns of AI in Education</h3>
+            <p class="time">~50 minutes</p>
+            <p>This module addresses six cognitive risks of AI overuse in student populations and offers practical mitigation strategies.</p>
+            <a href="{{ url_for('module2') }}" class="btn">Start Module 2</a>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="module-card">
+            <h3>Module 3: The Ethics of AI in Education</h3>
+            <p class="time">~55 minutes</p>
+            <p>This module explores the broader ethical landscape of AI, including job displacement, environmental costs, and privacy risks.</p>
+            <a href="{{ url_for('module3') }}" class="btn">Start Module 3</a>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="module-card">
+            <h3>Module 4: A Summary and Guide for AI Models</h3>
+            <p class="time">~40 minutes</p>
+            <p>This module provides a review of the entire course and a reference guide for AI model selection for faculty members.</p>
+            <a href="{{ url_for('module4') }}" class="btn">Start Module 4</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

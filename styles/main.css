@@ -1,0 +1,225 @@
+/* William & Mary Raymond A. Mason School of Business AI Proficiency Course Styles */
+
+:root {
+    --wm-green: #115740;
+    --wm-gold: #916f41;
+    --wm-white: #ffffff;
+    --wm-light-gray: #f4f4f4;
+    --wm-dark-gray: #333333;
+    --font-primary: 'EB Garamond', serif; /* Classic academic serif */
+    --font-secondary: 'Open Sans', sans-serif; /* Clean readable sans-serif */
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--wm-dark-gray);
+    background-color: var(--wm-white);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--wm-green);
+    color: var(--wm-white);
+    padding: 1rem 0;
+    border-bottom: 4px solid var(--wm-gold);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Branding/Logo */
+.branding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.branding h1 {
+    font-family: var(--font-primary);
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--wm-green);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    color: var(--wm-white);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    background-color: var(--wm-gold);
+    color: var(--wm-white);
+}
+
+/* Footer */
+footer {
+    background-color: var(--wm-green);
+    color: var(--wm-white);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 4px solid var(--wm-gold);
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+/* Main Content */
+main {
+    padding: 3rem 0;
+}
+
+h2, h3, h4 {
+    font-family: var(--font-primary);
+    color: var(--wm-green);
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--wm-gold);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1.2rem;
+    text-align: justify;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--wm-gold);
+    color: var(--wm-white);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: opacity 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--wm-green);
+}
+
+/* Modules Grid */
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.module-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: var(--wm-light-gray);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.module-card h3 {
+    margin-top: 0;
+}
+
+.module-card .time {
+    font-weight: bold;
+    color: var(--wm-gold);
+    margin-bottom: 1rem;
+}
+
+.module-card .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* Module Pagination */
+.module-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+}
+
+/* Feedback Section */
+.feedback-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.feedback-container .btn {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+
+/* Academic Blockquote/Note */
+.note {
+    background-color: #f9f9f9;
+    border-left: 5px solid var(--wm-green);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+}
+
+/* Team Section */
+.team-member {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.team-member:last-child {
+    border-bottom: none;
+}
+
+.team-member h4 {
+    margin: 0;
+    color: var(--wm-green);
+}
+
+.team-member p {
+    margin: 0.2rem 0;
+}

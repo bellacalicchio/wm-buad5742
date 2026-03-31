@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Module 2: Cognitive Concerns{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Module 2: Cognitive Concerns of AI in Education</h2>
+    <div class="note">
+        <strong>Estimated Completion Time:</strong> ~50 minutes
+    </div>
+
+    <p>This module addresses six cognitive risks of AI overuse in student populations: cognitive offloading, reduced critical thinking, decline in creativity, shortened attention spans, weakened knowledge retention, and erosion of foundational academic skills. Each of these risks is grounded in peer-reviewed research and illustrated with real-world classroom scenarios, such as a student submitting an AI-generated essay. This module concludes with three potential mitigation strategies: positioning AI as a support tool rather than a replacement for student effort, building AI literacy and critical thinking habits, and designing assessments that reduce AI dependency. Lastly, there are reflection activities that encourage faculty to think about their current relationship with AI tools.</p>
+
+    <div style="margin: 2rem 0;">
+        <a href="/downloads/module2.pptx" download class="btn btn-secondary">Download Module 2 Presentation (PowerPoint)</a>
+    </div>
+
+    <div class="module-nav">
+        <a href="{{ url_for('module1') }}" class="btn btn-secondary">← Previous Module</a>
+        <a href="{{ url_for('module3') }}" class="btn">Next Module: Module 3 →</a>
+    </div>
+</section>
+{% endblock %}

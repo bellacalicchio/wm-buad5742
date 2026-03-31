@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Welcome to the W&M AI Proficiency Course</h2>
+    <p>Welcome to the Raymond A. Mason School of Business AI Proficiency Course, a self-paced learning experience designed specifically for William & Mary faculty. This course was created to help you navigate the rapidly evolving landscape of artificial intelligence, explore its potential in educational settings, and engage critically with the questions and concerns it raises.</p>
+    <p>Whether you are new to AI or already experimenting with it in your classroom, this course meets you where you are. There are no prerequisites, no deadlines, and no grades. It is simply an opportunity to build familiarity and confidence with tools that are reshaping higher education.</p>
+
+    <div class="note">
+        Total course time: approximately 190 minutes.
+    </div>
+
+    <h3>What You Will Find Here</h3>
+    <p>This website is organized into four tabs. The Course tab is where you will spend most of your time as it contains all four learning modules, each on its own dedicated page with written content and a downloadable presentation file. The About Us tab tells you more about the team behind this course and our mission. The Feedback tab links to a short survey where you can share your thoughts and help us improve the course for future faculty.</p>
+
+    <h3>About the Modules</h3>
+    <p>The course consists of four modules, each designed to be completed independently in approximately 40 to 55 minutes:</p>
+    
+    <ul>
+        <li><strong>Module 1: An Introduction to Artificial Intelligence</strong> introduces the fundamentals of large language models, traces the history of AI, and surveys the most commonly used tools available today. (~45 minutes)</li>
+        <li><strong>Module 2: Cognitive Concerns of AI in Education</strong> examines how AI affects student thinking and learning behavior, and offers strategies for responsible use in the classroom. (~50 minutes)</li>
+        <li><strong>Module 3: The Ethics of AI in Education</strong> explores the broader ethical challenges AI presents and introduces a framework for thinking through them in an educational context. (~55 minutes)</li>
+        <li><strong>Module 4: A Summary and Guide for AI Models</strong> reviews the full course and provides a practical reference for selecting the right AI tool for your teaching needs. (~40 minutes)</li>
+    </ul>
+
+    <p>Each module is entirely optional and can be completed in any order, though we recommend starting with Module 1 if you are new to AI. You are welcome to complete all four, revisit individual modules, or focus only on the topics most relevant to you.</p>
+
+    <div class="note">
+        <strong>A Note Before You Begin</strong><br>
+        The field of AI is moving quickly, and this course reflects our best understanding as of early 2026. Some tools, features, and statistics referenced throughout the modules may evolve over time. We encourage you to approach this material with curiosity and a critical eye.
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+        <p>We are glad you are here. Let's get started.</p>
+        <a href="{{ url_for('course') }}" class="btn">Start the Course</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Module 1: Introduction to AI{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Module 1: An Introduction to Artificial Intelligence</h2>
+    <div class="note">
+        <strong>Estimated Completion Time:</strong> ~45 minutes
+    </div>
+
+    <p>This module establishes the conceptual foundation for the entire course. First, it defines what a large language model is, distinguishing LLMs from rule-based software, search engines, and older virtual assistants. Then, it provides a timeline of the technological evolution from the Statistical Era of the 1990s through the Neural/Transformer Revolution to the current Generative Era. Next, it discusses the most commonly used LLMs, such as ChatGPT, Claude, Gemini, Perplexity, NotebookLM, Copilot, DeepSeek, and Grok, listing their distinctive features, educational use cases, and the organizations managing each tool. In addition, there is a prompt engineering section that offers practical strategies for writing better prompts and grounding the model in provided context to reduce hallucinations. Also, hallucinations are directly addressed by explaining why they occur and how newer models have significantly reduced their frequency. Lastly, faculty are given two activities using NotebookLM and their own course materials.</p>
+
+    <div style="margin: 2rem 0;">
+        <a href="/downloads/module1.pptx" download class="btn btn-secondary">Download Module 1 Presentation (PowerPoint)</a>
+    </div>
+
+    <div class="module-nav">
+        <a href="{{ url_for('course') }}" class="btn btn-secondary">← Back to Course Overview</a>
+        <a href="{{ url_for('module2') }}" class="btn">Next Module: Module 2 →</a>
+    </div>
+</section>
+{% endblock %}

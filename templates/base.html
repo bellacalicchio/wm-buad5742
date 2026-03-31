@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} | W&M AI Proficiency Course</title>
+    <!-- Google Fonts for Academic Feel -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="branding">
+                <!-- W&M Branding Placeholder -->
+                <h1 style="border: 2px solid var(--wm-gold); padding: 5px 15px;">W&M</h1>
+            </div>
+            <div style="text-align: center; font-family: var(--font-primary);">
+                <span style="font-size: 1.5rem; letter-spacing: 2px;">Raymond A. Mason School of Business</span><br>
+                <span style="font-size: 1.2rem; color: var(--wm-gold);">AI PROFICIENCY COURSE</span>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="{{ url_for('index') }}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+                <li><a href="{{ url_for('course') }}" class="{% if request.path.startswith('/course') or request.path.startswith('/module') %}active{% endif %}">Course</a></li>
+                <li><a href="{{ url_for('about') }}" class="{% if request.path == '/about' %}active{% endif %}">About Us</a></li>
+                <li><a href="{{ url_for('feedback') }}" class="{% if request.path == '/feedback' %}active{% endif %}">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p style="font-family: var(--font-primary); font-size: 1.2rem;">Raymond A. Mason School of Business AI Proficiency Course</p>
+            <p>&copy; 2026 William & Mary. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/scripts/main.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

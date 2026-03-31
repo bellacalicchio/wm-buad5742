@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Module 4: Summary & Guide{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Module 4: A Summary and Guide for AI Models</h2>
+    <div class="note">
+        <strong>Estimated Completion Time:</strong> ~40 minutes
+    </div>
+
+    <p>This module provides a review of the entire course and a reference guide for AI model selection for faculty members. A comparison table covers seven major AI tools: ChatGPT, Claude, Perplexity, NotebookLM, Gemini, DeepSeek, and Copilot, evaluating each on strengths, weaknesses, educational uses, and specific concerns. In addition, this module includes a structured prompting guide with contextual and role-based prompt examples that can be applied to the activities found later in the module. The two activities guide faculty through using learning mode in an AI model such as Claude or Gemini with their own course materials, and building a NotebookLM notebook from their existing lecture content.</p>
+
+    <div style="margin: 2rem 0;">
+        <a href="/downloads/module4.pptx" download class="btn btn-secondary">Download Module 4 Presentation (PowerPoint)</a>
+    </div>
+
+    <div class="module-nav">
+        <a href="{{ url_for('module3') }}" class="btn btn-secondary">← Previous Module</a>
+        <a href="{{ url_for('course') }}" class="btn">Finish Course →</a>
+    </div>
+</section>
+{% endblock %}
