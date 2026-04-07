@@ -1,2 +1,7 @@
 flask==3.0.0
 gunicorn==21.2.0
+python-dotenv
+langchain>=0.3.0
+langgraph>=0.2.0
+langchain-google-genai
+tavily-python

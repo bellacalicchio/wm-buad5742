@@ -1,5 +1,115 @@
 import os
-from flask import Flask, render_template
+import json
+from flask import Flask, render_template, request, jsonify
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Configuration and API Keys
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+
+from langchain.chat_models import init_chat_model
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+from langchain_core.tools import tool
+from langgraph.checkpoint.memory import InMemorySaver
+from langgraph.prebuilt import create_react_agent
+from typing import Dict, Any
+from tavily import TavilyClient
+
+# Set API keys as environment variables for LangChain to use
+os.environ['GOOGLE_API_KEY'] = GEMINI_API_KEY
+os.environ['TAVILY_API_KEY'] = TAVILY_API_KEY
+
+# Initialize LLM
+llm = init_chat_model(model='google_genai:gemini-2.5-flash')
+
+# Initialize Tavily client
+tavily_client = TavilyClient(api_key=TAVILY_API_KEY)
+
+# Custom tools
+@tool
+def web_search(query: str) -> Dict[str, Any]:
+    """Search the web for information using Tavily."""
+    return tavily_client.search(query)
+
+@tool
+def source_finder(claim: str) -> str:
+    """
+    Provide trustworthy sources with links to the claims that the user inputs.
+    Make sure these are verifiable and trustworthy sources, paying special
+    attention to avoid sources such as Wikipedia or blog posts.
+    Returns a formatted string with title, url, publisher, and relevance.
+    """
+    response = WebsiteAgent.invoke(
+        {"messages": [HumanMessage(content=claim)]}
+    )
+    return response["messages"][-1].content
+
+@tool
+def concept_tutor(topic: str) -> str:
+    """
+    You are an AI tutor designed to assist faculty with learning about
+    concepts related to AI. When explaining concepts, you make sure to be
+    as thorough as possible while avoiding overly verbose explanations and
+    technical language. You always give accurate, unbiased answers about AI.
+    """
+    response = AIAgent.invoke(
+        {"messages": [HumanMessage(content=topic)]}
+    )
+    return response["messages"][-1].content
+
+# Initialize agents with memory
+AIAgent = create_react_agent(
+    model=llm,
+    tools=[], # No tools for the base AI agent
+    prompt="You are a tutor at an accredited ivy league school in America. You are tasked with helping faculty with learning about AI, both in terms of the ethics of AI and the actual workings of it. Whenever you are asked a question, you make sure to give as comprehensive an answer as possible without getting bogged down in technical language or giving overly bloated answers. You are certainly a fan of AI, as in you can see its benefits. But you are also very aware of all the issues present with AI, and thus always give accurate, unbiased answers about AI.",
+    checkpointer=InMemorySaver()
+)
+
+WebsiteAgent = create_react_agent(
+    model=llm,
+    tools=[web_search],
+    prompt="You are a systems AI designed to find verifiable and trustworthy sources for any claim. If you believe a claim is not supported very well, you will still attempt to find sources for it, but will make clear that you believe it is not well supported or that it is a controversial topic.",
+    checkpointer=InMemorySaver()
+)
+
+# Config for memory continuity
+config = {"configurable": {"thread_id": "1"}}
+
+# Orchestrator tools
+@tool
+def call_AIAgent(topic: str, content: str) -> str:
+    """
+    Call AIAgent to explain AI concepts or generate a quiz based on the
+    provided topic and content. Returns a detailed explanation or quiz
+    with answer explanations for each question.
+    """
+    response = AIAgent.invoke(
+        {"messages": [HumanMessage(content=f"{topic}: {content}")]},
+        config
+    )
+    return response["messages"][-1].content
+
+@tool
+def call_WebsiteAgent(query: str) -> str:
+    """
+    Call WebsiteAgent to find verifiable and trustworthy sources for a
+    claim related to AI in education or AI in general.
+    """
+    response = WebsiteAgent.invoke(
+        {"messages": [HumanMessage(content=query)]},
+        config
+    )
+    return response["messages"][-1].content
+
+# Create orchestration agent
+orchestration_agent = create_react_agent(
+    model=llm,
+    tools=[call_AIAgent, call_WebsiteAgent],
+    prompt="You are an AI assistant for the AI for Skeptics course at William & Mary's Raymond A. Mason School of Business. For EVERY message you receive you must ALWAYS follow these two steps in order: Step 1 — call call_AIAgent to explain the concept or answer the question. Step 2 — call call_WebsiteAgent to find supporting sources for your response. You must always complete both steps before giving a final answer. Never answer directly from your own knowledge without calling both tools first."
+)
 
 app = Flask(__name__, static_folder='.', static_url_path='')
 
@@ -39,6 +149,37 @@ def about():
 @app.route('/feedback')
 def feedback():
     return render_template('feedback.html')
+
+# Route for the AI Assistant Page
+@app.route('/assistant')
+def assistant():
+    return render_template('assistant.html')
+
+# New Route for Chat
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.json
+    message = data.get('message', '')
+    if not message:
+        return jsonify({'error': 'No message provided'}), 400
+    
+    response = orchestration_agent.invoke({
+        "messages": [HumanMessage(content=message)]
+    })
+    # Ensure response_text is a string
+    last_message = response['messages'][-1]
+    response_text = last_message.content
+    if not isinstance(response_text, str):
+        # Handle cases where content might be a list of content blocks
+        text_parts = []
+        for part in response_text:
+            if isinstance(part, dict) and 'text' in part:
+                text_parts.append(part['text'])
+            elif isinstance(part, str):
+                text_parts.append(part)
+        response_text = "".join(text_parts)
+
+    return jsonify({'response': response_text})
 
 if __name__ == '__main__':
     # Flask port is 8080 by default for Google Cloud Run

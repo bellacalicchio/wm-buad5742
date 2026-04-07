@@ -1,4 +1,4 @@
-/* William & Mary Raymond A. Mason School of Business AI Proficiency Course Styles */
+/* William & Mary Raymond A. Mason School of Business AI for Skeptics Course Styles */
 
 :root {
     --wm-green: #115740;
@@ -12,7 +12,7 @@
 
 body {
     font-family: var(--font-secondary);
-    line-height: 1.6;
+    line-height: 1.4;
     color: var(--wm-dark-gray);
     background-color: var(--wm-white);
     margin: 0;
@@ -22,7 +22,7 @@ body {
 header {
     background-color: var(--wm-green);
     color: var(--wm-white);
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     border-bottom: 4px solid var(--wm-gold);
 }
 
@@ -37,7 +37,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .branding h1 {
@@ -71,7 +71,7 @@ nav ul li a {
     display: block;
     color: var(--wm-white);
     text-decoration: none;
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1rem;
     font-weight: 600;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -86,8 +86,8 @@ footer {
     background-color: var(--wm-green);
     color: var(--wm-white);
     text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem;
+    padding: 1rem 0;
+    margin-top: 1rem;
     border-top: 4px solid var(--wm-gold);
 }
 
@@ -97,7 +97,7 @@ footer p {
 
 /* Main Content */
 main {
-    padding: 3rem 0;
+    padding: 1rem 0;
 }
 
 h2, h3, h4 {
@@ -107,14 +107,14 @@ h2, h3, h4 {
 
 h2 {
     font-size: 2.2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.2rem;
     border-bottom: 2px solid var(--wm-gold);
     display: inline-block;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.2rem;
 }
 
 p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.4rem;
     text-align: justify;
 }
 
@@ -145,14 +145,14 @@ p {
 .module-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .module-card {
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 0.75rem;
     background: var(--wm-light-gray);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex;
@@ -166,7 +166,7 @@ p {
 .module-card .time {
     font-weight: bold;
     color: var(--wm-gold);
-    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
 }
 
 .module-card .btn {
@@ -178,8 +178,8 @@ p {
 .module-nav {
     display: flex;
     justify-content: space-between;
-    margin-top: 3rem;
-    padding-top: 2rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
     border-top: 1px solid #ddd;
 }
 
@@ -199,27 +199,214 @@ p {
 .note {
     background-color: #f9f9f9;
     border-left: 5px solid var(--wm-green);
-    padding: 1.5rem;
-    margin: 2rem 0;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
     font-style: italic;
 }
 
 /* Team Section */
-.team-member {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #eee;
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.team-member:last-child {
-    border-bottom: none;
+.team-member {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
 }
 
 .team-member h4 {
     margin: 0;
     color: var(--wm-green);
+    font-size: 1rem;
 }
 
-.team-member p {
-    margin: 0.2rem 0;
+/* Chat Interface Styles */
+.chat-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--wm-green);
+    color: var(--wm-white);
+    border: 2px solid var(--wm-gold);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.chat-toggle-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--wm-gold);
+}
+
+.chat-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: var(--wm-white);
+    border: 2px solid var(--wm-green);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.chat-window.hidden {
+    display: none;
+}
+
+.chat-header {
+    background-color: var(--wm-green);
+    color: var(--wm-white);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--wm-gold);
+}
+
+.chat-header h3 {
+    margin: 0;
+    color: var(--wm-white);
+    font-size: 1.1rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--wm-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f9f9f9;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 85%;
+    font-size: 0.9rem;
+}
+
+.message.system {
+    align-self: flex-start;
+    background-color: #e0e0e0;
+    color: var(--wm-dark-gray);
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: var(--wm-green);
+    color: var(--wm-white);
+}
+
+.message.agent {
+    align-self: flex-start;
+    background-color: var(--wm-gold);
+    color: var(--wm-white);
+}
+
+.message.agent p {
+    margin: 0 0 0.5rem 0;
+    color: inherit;
+    text-align: left;
+}
+
+.message.agent p:last-child {
+    margin-bottom: 0;
+}
+
+.message.agent ul, .message.agent ol {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.chat-input-area {
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: var(--font-secondary);
+}
+
+.chat-input-area .btn {
+    padding: 8px 15px;
+}
+
+/* Full Page Assistant Styles */
+.assistant-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.full-chat-window {
+    height: 600px;
+    border: 2px solid var(--wm-green);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--wm-white);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+}
+
+/* Loading Indicator */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 18px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    width: fit-content;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--wm-green);
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1.0); }
 }

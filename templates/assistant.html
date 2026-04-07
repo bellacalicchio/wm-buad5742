@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}AI Assistant{% endblock %}
+
+{% block content %}
+<section class="assistant-container">
+    <h2>AI Assistant</h2>
+    <p>Welcome to the AI Assistant. Here, faculty members can ask questions about AI concepts, ethics, or course content. Our AI assistant is designed to provide comprehensive, unbiased information to help you navigate the world of AI.</p>
+
+    <div class="full-chat-window">
+        <div id="full-chat-messages" class="chat-messages">
+            <div class="message system">Welcome! I am your AI Assistant for the AI for Skeptics course. How can I help you today?</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="full-chat-input" placeholder="Ask a question about AI..." autocomplete="off">
+            <button id="full-send-chat" class="btn">Send</button>
+        </div>
+    </div>
+</section>
+{% endblock %}
