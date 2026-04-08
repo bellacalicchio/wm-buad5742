@@ -23,5 +23,23 @@
         <a href="{{ url_for('course') }}" class="btn btn-secondary">← Back to Course Overview</a>
         <a href="{{ url_for('module2') }}" class="btn">Next Module: Module 2 →</a>
     </div>
+
+    <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #ddd;">
+
+    <div class="discussion-section">
+        <h3>Discussion</h3>
+        <p>This is a space for faculty to share their thoughts and read responses from colleagues.</p>
+        
+        <div style="margin: 1.5rem 0;">
+            <a href="https://forms.gle/KPtFV3QRVxYWtp3L6" target="_blank" class="btn">Share Your Response</a>
+        </div>
+
+        <div style="margin: 1.5rem 0;">
+            <p style="font-style: italic; color: var(--wm-dark-gray); margin-bottom: 0.5rem;">Responses may take a few minutes to appear after submitting.</p>
+            <div style="border: 2px solid var(--wm-green); border-radius: 4px; overflow: hidden;">
+                <iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vSIlMUrwUfWfEwlt1MC4Vxg1ArrH1h7d0NNLffREmZosso6MKGct0YwMEYTQ5gV298ylzn3Fl3fHrt2/pubhtml?gid=1292081076&single=true&widget=true&headers=false' width='100%' height='400' frameborder='0'></iframe>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}
