@@ -12,6 +12,7 @@ To run this application:
 4. Access the site at http://localhost:8080
 """
 
+#Import the necessary libraries
 import os
 import json
 from flask import Flask, render_template, request, jsonify
@@ -49,6 +50,7 @@ tavily_client = TavilyClient(api_key=TAVILY_API_KEY)
 # --- Custom Tool Definitions ---
 # These tools allow agents to perform specific actions like searching the web or calling other agents
 
+#Tool for web search using tavily
 @tool
 def web_search(query: str) -> Dict[str, Any]:
     """
@@ -57,6 +59,7 @@ def web_search(query: str) -> Dict[str, Any]:
     """
     return tavily_client.search(query)
 
+#tool for soure finder 
 @tool
 def source_finder(claim: str) -> str:
     """
@@ -69,6 +72,7 @@ def source_finder(claim: str) -> str:
     )
     return response["messages"][-1].content
 
+#tool for concept tutor
 @tool
 def concept_tutor(topic: str) -> str:
     """
