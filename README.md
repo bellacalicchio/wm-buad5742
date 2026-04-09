@@ -2,6 +2,9 @@
 
 ## Visuals
 
+<img width="1081" height="748" alt="Screenshot 2026-03-31 091941" src="https://github.com/user-attachments/assets/50ed9623-7714-43df-aa96-cebaa61f83c4" />
+
+<img width="1617" height="1119" alt="Screenshot 2026-03-31 091657" src="https://github.com/user-attachments/assets/cc8804d5-35f8-4fbf-bd9b-94964733befa" />
 
 
 ---
