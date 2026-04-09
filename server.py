@@ -41,7 +41,7 @@ os.environ['GOOGLE_API_KEY'] = GEMINI_API_KEY
 os.environ['TAVILY_API_KEY'] = TAVILY_API_KEY
 
 # --- LLM and Search Client Initialization ---
-# Initialize the Gemini 2.0 Flash model via Google GenAI
+# Initialize the Gemini 2.5 Flash model via Google GenAI
 llm = init_chat_model(model='google_genai:gemini-2.5-flash')
 
 # Initialize the Tavily client for performing real-time web searches
@@ -167,17 +167,17 @@ def module1():
 
 @app.route('/module/2')
 def module2():
-    """Serves Learning Module 2: AI in Business."""
+    """Serves Learning Module 2: Cognitive Concerns of AI in Education."""
     return render_template('module2.html')
 
 @app.route('/module/3')
 def module3():
-    """Serves Learning Module 3: AI Ethics and Risks."""
+    """Serves Learning Module 3: The Ethics of AI in Education."""
     return render_template('module3.html')
 
 @app.route('/module/4')
 def module4():
-    """Serves Learning Module 4: The Future of AI."""
+    """Serves Learning Module 4: Summary and Model Guide."""
     return render_template('module4.html')
 
 @app.route('/about')
@@ -187,7 +187,7 @@ def about():
 
 @app.route('/feedback')
 def feedback():
-    """Serves the Student Feedback Page."""
+    """Serves the Faculty Feedback Page."""
     return render_template('feedback.html')
 
 @app.route('/assistant')
