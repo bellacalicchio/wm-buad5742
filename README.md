@@ -1,4 +1,4 @@
-# AI for Skeptics — A Self-Paced AI Course for Business School Faculty
+# AI for Skeptics: A Self-Paced AI Course for Business School Faculty
 
 ## Visuals
 
