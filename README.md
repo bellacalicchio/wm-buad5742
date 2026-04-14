@@ -36,7 +36,7 @@ This module establishes the conceptual foundation for the entire course. First, 
 Then, it provides a timeline of the technological evolution from the Statistical Era of the 1990s through the Neural/Transformer Revolution to the current Generative Era. Next, it discusses the most commonly used LLMs,
 such as ChatGPT, Calude, Gemini, Perplexity, NotebookLM, Copilot, DeepSeek, and Grok, listing their distinctive features, educational use cases, and the organizations managing each tool. In addition, there is a prompt
 engineering section that offers practical strategies for writing better prompts and grounding the model in provided context to reduce hallucinations. Also, hallucinations are directly addressed by explaining why they
-occur and how newer models have significantly reduced the frequency of hallucinations. Lastly, faculty are given two activities using NotebookLM and their own course materials.
+occur and how newer models have significantly reduced the frequency of hallucinations. Lastly, faculty are given two activities using NotebookLM that can be completed using a discussion post provided and their own course materials.
 
 ### Module 2: Cognitive Concerns of AI in Education
 
